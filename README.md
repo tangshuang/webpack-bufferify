@@ -33,6 +33,8 @@ export default class MyWebpackPlugin extends Bufferify {
 }
 ```
 
+However, if you use babel or webpack, `import Bufferify from 'webpack-bufferify'` is ok.
+
 And then when you use this new plugin:
 
 ```
