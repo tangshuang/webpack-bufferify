@@ -1,0 +1,22 @@
+{
+  "name": "webpack-bufferify",
+  "version": "0.0.5",
+  "description": "webpack bufferify plugin basic class",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": ["webpack"],
+  "author": "tangshuang",
+  "dependencies": {
+    "webpack-sources": "*"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangshuang/webpack-bufferify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tangshuang/webpack-bufferify/issues"
+  },
+  "homepage": "https://github.com/tangshuang/webpack-bufferify#readme",
+  "license": "ISC"
+}
