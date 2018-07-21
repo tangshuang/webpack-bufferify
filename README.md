@@ -1,6 +1,6 @@
 # Webpack Bufferify
 
-Webpack bufferify plugin basic class, when you want to create a webpack plugin to modify output file content, just extend this class.
+This is a webpack plugin generator tool, which help you modify the output file content of webpack more quickly.
 
 ## Install
 
@@ -10,59 +10,35 @@ npm install --save-dev webpack-bufferify
 
 ## Usage
 
-```
-var Bufferify = require('webpack-bufferify')
-var MyWebpackPlugin = function() {}
-
-MyWebpackPlugin.prototype.apply = Bufferify.prototype.apply
-MyWebpackPlugin.prototype.process = function(content, file, assets, compilation) {
-    // modify content, e.g. content = content.replace(/a/g, 'b')
-    return content
-}
-```
-
-or es6:
+ES6:
 
 ```
-import Bufferify from 'webpack-bufferify/class'
-export default class MyWebpackPlugin extends Bufferify {
-    process(content, file, assets, compilation) {
-        // modify content, e.g. content = content.replace(/a/g, 'b')
-        return content
-    }
-}
+import bufferify, { WebpackBufferify } from 'webpack-bufferify/src/webpack-bufferify'
 ```
 
-However, if you use babel or webpack, `import Bufferify from 'webpack-bufferify'` is ok.
+CommonJS:
 
-And then when you use this new plugin:
+```
+const bufferify = require('webpack-bufferify')
+```
+
+To use:
 
 ```
 //webpack.config.js
-
 ...
-    plugins: [
-        new MyWebpackPlugin(),
-    ],
-...
-```
-## Notice
-
-In previous version, I use options.output.filename to determine which file to modify, this cause bug when using `[name].js` in output.filename.
-
-In this version, all chunks content will be modified. If you want to modify certain file, do like:
-
-```
-...
-  process(content, file) {
-    if (file === 'myfile.js') {
-      // do what you want
-    }
-  }
+plugins: [
+    bufferify(function(content, file, assets, compilation) {
+        content = content.replace(/a/g, 'b')
+        return content
+    }),
+],
 ...
 ```
 
-`process` has parameters:
+## Params
+
+As you seen, you pass a callback function into `bufferify` function. This callback function has parameters:
 
 **content**
 
@@ -87,3 +63,19 @@ webpack compiler.
 **@return value**
 
 the return value (string) will be treated as this output file content. if you do not return any content, original content will be used.
+
+## Create a webpack plugin
+
+If you use ES6 to build you code, you are able to create your own webpack plugin easliy like:
+
+```
+import { WebpackBufferify } from 'webpack-bufferify/src/webpack-bufferify'
+
+export default class MyWebpackPlugin extends WebpackBufferify {
+    process(content, file, assets, compilation, compiler) {
+        // ...
+    }
+}
+```
+
+Just override `process` method.

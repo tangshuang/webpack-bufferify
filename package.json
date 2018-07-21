@@ -1,15 +1,25 @@
 {
   "name": "webpack-bufferify",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "webpack bufferify plugin basic class",
   "main": "index.js",
-  "scripts": {},
-  "keywords": ["webpack"],
+  "scripts": {
+    "build": "node build"
+  },
+  "keywords": [
+    "webpack"
+  ],
   "author": "tangshuang",
   "dependencies": {
     "webpack-sources": "*"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-bufferify": "^1.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tangshuang/webpack-bufferify.git"
