@@ -1,7 +1,6 @@
 var gulp = require('gulp')
 var bufferify = require('gulp-bufferify')
 var babel = require('gulp-babel')
-var namespace = 'HelloEvents'
 
 gulp.src('src/webpack-bufferify.js')
   .pipe(babel({
