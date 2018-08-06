@@ -9,6 +9,7 @@ export class WebpackBufferify {
         let asset = assets[file]
         let content = asset.source()
         // begin to modify content
+        content = content.toString()
         content = this.process(content, file, assets, compilation, compiler) || content
         assets[file] = new RawSource(content)
       })
