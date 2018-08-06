@@ -29,6 +29,7 @@ To use:
 ...
 plugins: [
     bufferify(function(content, file, assets, compilation) {
+        content = content.toString()
         content = content.replace(/a/g, 'b')
         return content
     }),
@@ -42,9 +43,9 @@ As you seen, you pass a callback function into `bufferify` function. This callba
 
 **content**
 
-chunk buffer content string, which has been convert to be a string by `content.toString()`.
+_Notice: it is not a string!!!_
 
-if you want to get the original buffer, use `assets[file].source()`.
+chunk file buffer, should be convert to be a string by `content.toString()`.
 
 **file**
 
