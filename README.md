@@ -13,13 +13,13 @@ npm install --save-dev webpack-bufferify
 ES6:
 
 ```
-import bufferify, { WebpackBufferify } from 'webpack-bufferify/src/webpack-bufferify'
+import { bufferify, WebpackBufferify } from 'webpack-bufferify'
 ```
 
 CommonJS:
 
 ```
-const bufferify = require('webpack-bufferify')
+const { bufferify, WebpackBufferify } = require('webpack-bufferify')
 ```
 
 To use:
@@ -45,7 +45,7 @@ As you seen, you pass a callback function into `bufferify` function. This callba
 
 _Notice: it is not a string!!!_
 
-chunk file buffer, should be convert to be a string by `content.toString()`.
+pre-output chunk file buffer, should be convert to be a string by `content.toString()`.
 
 **file**
 

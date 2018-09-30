@@ -20,8 +20,10 @@ export class WebpackBufferify {
   }
 }
 
-export default function bufferify(factory) {
+export function bufferify(factory) {
   let plugin = new WebpackBufferify()
   plugin.process = factory.bind(plugin)
   return plugin
 }
+
+export default bufferify

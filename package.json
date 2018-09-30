@@ -1,10 +1,10 @@
 {
   "name": "webpack-bufferify",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "webpack bufferify plugin basic class",
   "main": "dist/webpack-bufferify.js",
   "scripts": {
-    "build": "node build"
+    "build": "babel src/webpack-bufferify.js -o dist/webpack-bufferify.js"
   },
   "keywords": [
     "webpack"
@@ -14,11 +14,8 @@
     "webpack-sources": "*"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.1",
-    "gulp-bufferify": "^1.0.0"
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
   },
   "repository": {
     "type": "git",
